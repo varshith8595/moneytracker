@@ -25,7 +25,7 @@ function App() {
       .then((result) => result.json().then((post) => setpostinfo(post)))
       .catch((err) => console.log(err));
   };
-  const addtransaction = (e) => {
+  const addtransaction = async(e) => {
     e.preventDefault();
     console.log("This is a good thing to know about");
     const formdata = new FormData();
@@ -37,7 +37,7 @@ function App() {
     setdate("");
     setdescription("");
     setprice("");
-    fetch("http://localhost:4000/post", {
+    await fetch("http://localhost:4000/post", {
       method: "POST",
       body: formdata,
     })
